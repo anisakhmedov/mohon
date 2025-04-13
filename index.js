@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+
     const menuItems = [
         {
             category: "topping",
@@ -559,6 +560,52 @@ document.addEventListener('DOMContentLoaded', () => {
         },
     ];
 
+    const filtersContainer = document.getElementById('category-filters');
+    let activeCategory = null;
+
+    // Сгенерировать кнопки фильтров
+    menuItems.forEach(section => {
+        const btn = document.createElement('button');
+        btn.textContent = section.title.toUpperCase();
+        btn.dataset.category = section.category;
+
+        btn.addEventListener('click', () => {
+            const isActive = activeCategory === section.category;
+            if (isActive) {
+                // повторное нажатие — сброс фильтра
+                showAllSections();
+                activeCategory = null;
+                resetActiveButtons();
+            } else {
+                filterByCategory(section.category);
+                activeCategory = section.category;
+                setActiveButton(btn);
+            }
+        });
+
+        filtersContainer.appendChild(btn);
+    });
+
+    function filterByCategory(category) {
+        document.querySelectorAll('.menu-section').forEach(section => {
+            const matches = section.querySelector('img')?.src.includes(`/${category}/`);
+            section.style.display = matches ? 'block' : 'none';
+        });
+    }
+
+    function showAllSections() {
+        document.querySelectorAll('.menu-section').forEach(sec => sec.style.display = 'block');
+    }
+
+    function resetActiveButtons() {
+        document.querySelectorAll('#category-filters button').forEach(btn => btn.classList.remove('active'));
+    }
+
+    function setActiveButton(btn) {
+        resetActiveButtons();
+        btn.classList.add('active');
+    }
+
     const container = document.getElementById('menu-sections');
     const modal = document.getElementById('modal');
     const modalImg = document.getElementById('modal-img');
@@ -596,7 +643,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 modalImg.src = `./assets/images/menu/${section.category}/${item.image}.jpg`;
                 modalImg.alt = item.title;
                 modalTitle.textContent = item.title.toUpperCase();
-                if(item.disc){
+                if (item.disc) {
                     modalDisc.textContent = item.disc
                 }
                 modalPrice.textContent = item.price + ' 000';
@@ -618,11 +665,12 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.classList.remove('open');
     });
 
-    
+
 
     window.addEventListener('click', e => {
         if (e.target === modal) {
             modal.classList.remove('open');
         }
     });
+
 });
