@@ -33,7 +33,7 @@ header {
 
   .menu-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     justify-content: center;
   }
@@ -45,7 +45,6 @@ header {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s;
     display: flex;
-    flex-direction: column;
     height: 100%;
 
     &:hover {
@@ -53,13 +52,14 @@ header {
     }
 
     img {
-      width: 100%;
+      width: 33%;
       height: 200px;
       object-fit: cover;
     }
 
     .info {
       padding: 15px;
+      width: 66%;
 
       h3 {
         margin: 0 0 10px;
