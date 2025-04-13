@@ -169,3 +169,37 @@ header {
   cursor: pointer;
   color: $accent-color;
 }
+
+@media (max-width: 768px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    flex-direction: row !important;
+    height: 140px;
+
+    img {
+      width: 140px !important;
+      height: 140px !important;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .info {
+      padding: 10px;
+      display: flex;
+      flex-direction: column !important;
+      justify-content: center;
+
+      h3 {
+        font-size: 1.1rem;
+      }
+
+      .price {
+        font-size: 1rem;
+        margin-top: 5px;
+      }
+    }
+  }
+}
