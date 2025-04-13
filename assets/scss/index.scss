@@ -1,4 +1,4 @@
-$bg-color: #3d2c23;
+$bg-color: #3b211a;
 $accent-color: #c9a76d;
 $text-color: #f1e9dd;
 $card-bg: #4a372c;
@@ -158,6 +158,8 @@ header {
 
   .price {
     color: $price-color;
+    margin: 0;
+    font-weight: 600;
   }
 }
 
@@ -170,9 +172,25 @@ header {
   color: $accent-color;
 }
 
+#modal-close-btn{
+  border: none;
+  padding: 10px 50px;
+  background-color: #c9a76d;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
 @media (max-width: 768px) {
   .menu-grid {
     grid-template-columns: 1fr;
+  }
+
+  .menu-section{
+    padding: 7.5px 10px;
   }
 
   .card {
