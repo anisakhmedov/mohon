@@ -7,9 +7,9 @@ $price-color: #e7c89e;
 body {
   margin: 0;
   font-family: "Segoe UI", sans-serif;
-  // background-color: $bg-color;
+  background-color: #57882D;
   color: $text-color;
-  background-image: url(../images/back.webp);
+  // background-image: url(../images/back.webp);
   position: relative;
 }
 
@@ -37,7 +37,7 @@ body {
     font-size: 30px;
     border: none;
     border-radius: 50px;
-    background-color: #6d574a;
+    background-color: #7ca955;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -82,7 +82,7 @@ header {
   }
 
   .card {
-    background-color: #c9a76d;
+    background-color: #658f53;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
